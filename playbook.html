@@ -281,7 +281,6 @@
     <a class="navlink" data-target="s0"><span class="dot"></span>0 · Services &amp; infrastructure</a>
     <a class="navlink" data-target="s1"><span class="dot"></span>1 · New cohort setup</a>
     <a class="navlink" data-target="s2b"><span class="dot"></span>2b · Calendar &amp; check-in</a>
-    <a class="navlink" data-target="s2c"><span class="dot"></span>2c · Sync Groups</a>
     <a class="navlink" data-target="s2d"><span class="dot"></span>2d · Zoom meetings</a>
     <a class="navlink" data-target="s3"><span class="dot"></span>3 · Scoring applications</a>
     <a class="navlink" data-target="s4"><span class="dot"></span>4 · Email campaigns</a>
@@ -442,7 +441,7 @@
       <caption>📥 Application review views</caption>
       <tr><th>View</th><th>Filter (in addition to Source Form)</th><th>Used for</th></tr>
       <tr><td><b>All</b></td><td>—</td><td>Overview, counting applicants</td></tr>
-      <tr><td><b>Unscored</b></td><td><span class="field">Total Score</span> empty AND <span class="field">Hard Filter Pass</span> ≠ false</td><td>Opened before clicking <span class="btnpill">⚡ Score Applicants</span></td></tr>
+      <tr><td><b>Unscored</b></td><td><span class="field">Total Score</span> empty</td><td>Opened before clicking <span class="btnpill">⚡ Score Applicants</span></td></tr>
       <tr><td><b>Review Scores</b></td><td><span class="field">Total Score</span> filled AND <span class="field">Status</span> empty</td><td>Reading AI Summary, setting Status</td></tr>
       <tr><td><b>Accepted</b></td><td><span class="field">Status</span> = Accepted</td><td>Acceptance emails, tracking engagement</td></tr>
       <tr><td><b>0-2 years</b> <span class="mono">(special)</span></td><td><span class="field">Years Since Aliyah</span> = "0-2"</td><td>Hand-pick from the recent-olim pool</td></tr>
@@ -499,24 +498,6 @@
   <div class="note">If the check-in page itself is unreachable (no venue wifi, Railway down) — fall back to a printed RSVP list, same as the Eventbrite fallback in <a href="#s6">Section 6</a>.</div>
 </section>
 
-<section class="doc" id="s2c">
-  <h2><span class="num">02c</span> Sync Groups <span class="mono" style="font-size:.6em; color:var(--ink-soft)">— for invites past ~200 people</span></h2>
-  <p class="lede">Google Calendar caps direct invitees at ~200 — inviting Cohort 1+2+3 together (150–300+ people) hits that wall. Google's way past it is inviting a <b>Google Group</b> instead — but people have to already be members of it.</p>
-
-  <div class="note">🌅 Groups also sync <b>automatically every morning at 8:00</b> (Israel time) — you don't have to click the button just to keep membership current. Click it yourself when you need it to happen <i>right now</i>, e.g. right before creating a Calendar event.</div>
-
-  <div class="callout"><span class="icon">⚠️</span><div><b>Ordering matters.</b> Do this <i>before</i> creating the Calendar event, every time. Google expands a Group's membership at the moment the invite is sent — add people afterward and they won't get it retroactively.</div></div>
-
-  <h3>How it works</h3>
-  <ol class="steps">
-    <li>Click <span class="btnpill">🔄 Sync Groups</span> in Airtable — or just wait for the 8am automatic run if you're not in a hurry</li>
-    <li>Reads every Applications record's Cohort + Status, adds anyone missing, removes anyone no longer active</li>
-    <li>Wait for the confirmation message (added/removed counts). <b>Only then</b> create the Calendar event and invite the group's email (e.g. <code>cohort-1@gayaolim.org</code>) as a guest</li>
-  </ol>
-
-  <p><b>Who ends up in a group:</b> only Applications whose Status counts as active — currently Accepted, Alumni, and Late applicants. Ask the developer if a Status needs adding to that list.</p>
-  <div class="note">If the button errors or a group looks wrong — membership can always be fixed by hand in Google Admin Console (Directory → Groups). The next Sync Groups run reconciles against Airtable, it won't fight a manual fix.</div>
-</section>
 
 <section class="doc" id="s2d">
   <h2><span class="num">02d</span> Zoom Meeting Creation &amp; Attendance Sync</h2>
